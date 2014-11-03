@@ -1,0 +1,181 @@
+ 
+
+  {% extends "base.html" %}
+
+
+ {% block content %} 
+
+
+
+ 
+{% include "menus/menu.html" %}
+ 
+ 
+ {% endblock %}
+ 
+  
+ {% block body %}
+ 
+  <div class="jumbotron">
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Cronograma</div>
+  <div class="panel-body">
+
+
+<table class="table table-hover">
+ 
+   <thead>
+      <tr>
+         <th>Fecha</th>
+         <th>Comentarios</th>
+         <th> Historial</th>
+      </tr>
+   </thead>
+   <tbody>
+
+     {% for dia in dias %}
+      
+
+     <tr>
+         <td>{{dia.fecha.date|date:" d/m/y"}}</td>
+         <td>{{dia.autocritica}}</td>
+         <td>
+        <span><a style="color:gray" href="{% url 'history' dia.id %}">(Ver)</a></span>
+ 
+         </td>
+      </tr>
+ 
+     {% endfor %}
+  
+   
+      </tbody>
+
+<form action="demo_form.asp">
+  Mostrar apartir:
+  <input type="date" name="bday">
+  <input type="submit" value="Send">
+</form>
+</table>
+
+  </div>
+  </div>
+  </div>
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+ {% endblock body %}
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+  
+function mostrar()
+{
+document.getElementById("contenido").style.display = "block";
+
+}
+function agregarDia(id){
+   
+  $.ajax({
+                        url : '/load_datos', 
+                        type : 'get',
+                        data : {'id':id},
+
+                       
+                            success : function(data) {
+                              alert("Se guardo el nuevo dia");
+                               
+                            },
+                            failure : function(data){
+                              alert('error!!');
+                            }
+                    });
+}
+
+function eliminarDia(id){
+   
+  $.ajax({
+                        url : '/load_datos', 
+                        type : 'get',
+                        data : {'id':id},
+
+                       
+                            success : function(data) {
+                              alert("Se guardo el nuevo dia");
+                               
+                            },
+                            failure : function(data){
+                              alert('error!!');
+                            }
+                    });
+}
+
+ 
+
+</script>
+ {% block script %}
+   
+<script type="text/javascript">
+  
+function mostrar()
+{
+document.getElementById("contenido").style.display = "block";
+
+}
+function agregarDia(id){
+   
+  $.ajax({
+                        url : '/load_datos', 
+                        type : 'get',
+                        data : {'id':id},
+
+                       
+                            success : function(data) {
+                              alert("Se guardo el nuevo dia");
+                               
+                            },
+                            failure : function(data){
+                              alert('error!!');
+                            }
+                    });
+}
+
+function eliminarDia(id){
+   
+  $.ajax({
+                        url : '/load_datos', 
+                        type : 'get',
+                        data : {'id':id},
+
+                       
+                            success : function(data) {
+                              alert("Se guardo el nuevo dia");
+                               
+                            },
+                            failure : function(data){
+                              alert('error!!');
+                            }
+                    });
+}
+
+ 
+
+</script>
+ {% endblock script %}

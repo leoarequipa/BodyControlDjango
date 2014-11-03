@@ -1,0 +1,70 @@
+
+ <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <input type="image" name="enviar" src="{{ STATIC_URL }}images/logo.png"  />
+                        <a class="navbar-brand" href="{% url 'home'%}">Body Control</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+    {% if templa == "register" %}
+     <li><a href="{% url 'login' %}">Login</a></li>
+    {% else %}
+
+ <li><a href="{% url 'register' %}">Registrarse</a></li>
+
+ <li><a href="{% url 'load_users' %}">Conoce</a></li>
+
+
+
+    </ul>
+
+{% load crispy_forms_tags %}
+ 
+                            
+
+
+ 
+
+
+      <form action='.' class="navbar-form navbar-right" role="search" method="post">
+     
+{% csrf_token %}
+<div class="form-group">
+
+<span class="form-control">{{ form.username.label_tag }}</span><br/>
+
+
+{{ form.username }}<br/>
+
+
+</div>
+
+ <div class="form-group">
+<span class="form-control">{{ form.password.label_tag }}</span><br/>
+{{ form.password  }}<br/>
+
+ </div>
+
+
+        <input class="btn btn-primary"  type="submit" value="Ingresar" />
+      </form>
+    {% endif %}
+                       
+            
+  
+
+
+
+
+
+    </div> 
+
+
+
+
+
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+ 

@@ -1,0 +1,71 @@
+{% extends "main/index.html" %} 
+
+ 
+ {% block body%}
+
+  <div class="jumbotron">
+ 
+ 
+ <div class="panel panel-primary">
+  <div class="panel-heading">Agregar nuevo estado<input type="button" value="Mostrar" onclick="mostrar()"> </div>
+  <div class="panel-body">
+
+{% load crispy_forms_tags %}
+ 
+<div id="contenido" style='display:none;'>
+<form action="/load_perfil/" method="post" class="navbar-form navbar-left">
+
+{% csrf_token %}
+ 
+{{ form | crispy }}
+
+
+		<input class="btn btn-success" text="Aceptar" type="submit" value="Guardar"  />
+</form>
+
+  
+</div>
+  </div>
+ </div> 
+ 
+{% load imagekit %}
+<div class="panel panel-primary">
+  <div class="panel-heading">Mis estados  <input id="button" type="button" value="Mostrar mis datos" onclick="cargar({{user.id}})"></input></div>
+  <div class="panel-body">
+
+ <div id="datos">
+ </div>
+  </div>
+ </div> </div>
+ </div>
+  </div>
+ 
+ 
+{% endblock body %}
+
+{% block script %}
+<script type="text/javascript">
+  
+function mostrar()
+{
+document.getElementById("contenido").style.display = "block";
+
+}
+function cargar(id){
+   
+  $.ajax({
+                        url : '/load_datos', 
+                        type : 'get',
+                        data : {'id':id },
+                            success : function(data) {
+ 
+                                $('#datos').html(data);
+                            },
+                    });
+}
+
+
+</script>
+
+	
+{% endblock script %}

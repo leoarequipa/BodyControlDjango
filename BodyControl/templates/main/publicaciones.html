@@ -1,0 +1,77 @@
+    {% for usu in usuarios  %}
+    <div class="container">
+      <div class="well">
+        <div class="media">
+          <a class="pull-left" href="#">
+            <img class="chica" src="{{MEDIA_URL}}{{usu.avatar}}">
+
+
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">Mis actividades</h4>
+            <p class="text-right">{{usu.user.username|upper}} </p>
+
+
+            {% for dia in dias %}
+
+            {% if dia.persona.id = usu.user.id  %}
+
+            {% for e in estados  %}
+
+            {% if e.day.id = dia.id %}
+
+
+
+           
+            <h3><label>{{e.comida}} se comio:</label>
+            </h3>
+            <p>
+              {% for c in comidas  %}
+
+              {% if c.estado.id = e.id %}
+               <div class="well well-lg">
+              <h3>
+                {{c.nombre}}:<img class="media-object" src="{{MEDIA_URL}}{{c.photo_food}}">
+              </h3> 
+               
+                <label>Lo que me parecio:</label>{{c.comentario}}
+              
+              
+              <ul class="list-inline list-unstyled">
+                <li><span><i class="glyphicon glyphicon-calendar"></i> {{dia.fecha.date|upper}} </span>
+                </li>
+                <li>|</li>
+                <li><span>
+{% if c.situacion_comida == 'Subio' %}
+  <label>Estado:</label><img class="flechachica" src="{{ STATIC_URL }}images/subio.png" alt="..." class="img-circle" value="Subio">
+ 
+{% elif c.situacion_comida == 'Bajo' %}
+ <label>Estado:</label><img class="flechachica" src="{{ STATIC_URL }}images/bajo.png" alt="..." class="img-circle">
+
+{% else %}
+<label>Estado:</label><img class="flechachica" src="{{ STATIC_URL }}images/Salud.png" alt="..." class="img-circle">
+
+ 
+{% endif %}
+                 
+                </span></li>
+ </div>
+              </ul>
+
+              {% endif %}
+              {% endfor %}
+            </p>
+            {% endif %}
+
+            {% endfor %}
+
+            {% endif %}
+
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+</div>
+
+      {% endfor %}

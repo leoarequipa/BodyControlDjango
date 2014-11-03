@@ -1,0 +1,8 @@
+crispy:pip install --upgrade django-crispy-forms
+sorl
+booststrapform
+imagekit
+
+python dev:sudo apt-get install python3-dev
+
+json : pip install simplejson

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block content %} 
+
+
+{% if user.is_authenticated %}
+
+
+{% include "menus/menu.html" %}
+
+{% endif %}
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+<div class="jumbotron">
+
+
+  <img src="{{ STATIC_URL }}images/refresh2.png" alt="..." class="img-circle">
+  <h1>Conocenos</h1>
+  <p>Nos encargamos de hacer un seguimiento de tu progreso tanto saludable como fisico.</p>
+
+  </div>
+
+{% include "main/publicaciones.html" %}
+
+
+ 
+{% endblock body %}
+
+
+
+{% block script %}
+<script>
+  
+  
+</script>
+
+{% endblock script %}
+
+

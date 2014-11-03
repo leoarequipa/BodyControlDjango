@@ -1,0 +1,93 @@
+ 
+
+  {% extends "base.html" %}
+
+
+ {% block content %} 
+
+ 
+{% include "menus/menu.html" %}
+
+
+
+
+
+ 
+ {% endblock %}
+
+
+  
+ {% block body %}
+
+ 
+ 
+
+
+  <div class="jumbotron">
+
+
+
+<table class="table">
+   <caption>Mis estados</caption>
+   <thead>
+      <tr>
+ 
+         <th>Descripcion</th>
+         <th>Calorias</th>
+         <th> Comidas</th>
+      </tr>
+   </thead>
+   <tbody>
+
+
+
+
+
+
+
+
+
+     {% for estado in estados %}
+     	
+
+     <tr>
+ 
+          <td> 
+              {{estado.comida}}
+
+         </td>
+         <td>{{estado.total_calorias}}</td>
+         
+         <td> 
+   <span><a style="color:gray" href="{% url 'foods' estado.id %}">(Ver)</a></span>
+
+
+
+         </td>
+      </tr>
+ 
+     {% endfor %}
+  
+   
+      </tbody>
+
+</table>
+ </div>
+
+
+
+ <script language="Javascript">
+   
+   </script>
+
+ {% endblock body %}
+
+
+  
+
+
+
+
+
+
+ 

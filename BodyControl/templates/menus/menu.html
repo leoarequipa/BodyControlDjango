@@ -1,0 +1,32 @@
+ <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+
+          <div class="navbar-header">
+
+<div>
+  <input type="image" name="enviar" src="{{ STATIC_URL }}images/logo.png"  > 
+ 
+ 
+ 
+
+            <a class="navbar-brand" href="{% url 'home'%}">Body Control:{{user.username}}</a>
+</div>
+             
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+      
+  					<li><a href="{% url 'load_perfil'%}">Perfil</a></li>
+            <li><a href="{% url 'load_status' user.id%}">Seguimiento</a></li>
+            <li><a href="#">Informes</a></li>
+            <li><a href="#">Alimentos favoritos</a></li>
+  					<li><a href="{% url 'logout' %}">Salir</a></li>
+            </ul>
+  
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+

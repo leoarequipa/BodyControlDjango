@@ -1,0 +1,64 @@
+ 
+
+  {% extends "base.html" %}
+
+
+ {% block content %} 
+
+
+ 
+ <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'home_index'%}">Body control</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+      
+  	   <li><a href="{% url 'register' %}">Registrarse</a></li>
+            <li><a href="{% url 'login'%}">Iniciar sesion</a></li>
+            </ul>
+  
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+ 
+ {% endblock %}
+
+  
+ {% block body %}
+  <div class="jumbotron">
+
+
+<input type="image" name="enviar" src="{{ STATIC_URL }}images/refresh2.png" 
+ />
+        <h1>Conocenos</h1>
+        <p>Nos encargamos de hacer un segffasuimiento de tu progreso tanto saludable como fisico.</p>
+   
+  
+    </div>
+ 
+
+ {% endblock body %}
+
+
+
+
+
+
+
+
+
+
+
+
+ 

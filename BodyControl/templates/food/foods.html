@@ -21,40 +21,38 @@
   
  {% block body %}
 
-
  
+ 
+
 
 
 
 
 
   <div class="jumbotron">
-<table class="table">
-   <caption>Mis comidas</caption>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Mis alimentos</div>
+  <div class="panel-body">
+
+
+<table class="table table-hover">
+ 
    <thead>
       <tr>
- 
-         <th>Nombre</th>
+ <th>Nombre</th>
          <th> Tipo</th>
          <th>Calorias</th>
-         
+         <th>Modificar</th>
+         <th> Eliminar</th>
       </tr>
    </thead>
    <tbody>
 
-
-
-
-
-
-
-
-
-     {% for food in foods %}
-     	
-
-     <tr>
  
+     {% for food in foods %}
+ 
+     <tr>
           <td> 
               {{food.nombre}}
 
@@ -65,19 +63,34 @@
 {{food.calorias}}
 
          </td>
+<td>
+   <span><a style="color:gray" href="{% url 'foods' food.id %}">(Modificar)</a></span>
+         </td>
+       <td> 
+
+   <span><a style="color:gray" href="{% url 'foods' food.id %}">(Eliminar)</a></span>
+         </td>
+
+
+
+
+
       </tr>
  
      {% endfor %}
-  
-   
       </tbody>
 
+ 
 </table>
+
+  </div>
+  </div>
+  </div>
+
  </div>
 
 
 
- 
 
  {% endblock body %}
 

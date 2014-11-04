@@ -1,7 +1,7 @@
 crispy:pip install --upgrade django-crispy-forms
 sorl
 booststrapform
-imagekit
+imagekit:pip install imagekit
 
 python dev:sudo apt-get install python3-dev
 

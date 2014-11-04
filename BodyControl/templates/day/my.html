@@ -30,6 +30,7 @@
          <th>Fecha</th>
          <th>Comentarios</th>
          <th> Historial</th>
+         <th> Eliminar</th>
       </tr>
    </thead>
    <tbody>
@@ -43,6 +44,10 @@
          <td>
         <span><a style="color:gray" href="{% url 'history' dia.id %}">(Ver)</a></span>
  
+         </td>
+
+         <td>
+        <span><a style="color:gray" href="{% url 'history' dia.id %}">(Eliminar)</a></span>
          </td>
       </tr>
  
@@ -65,15 +70,7 @@
  </div>
 
 
-
-
-
-
-
-
-
-
-
+ 
 
  {% endblock body %}
 

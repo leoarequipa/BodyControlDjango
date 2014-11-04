@@ -15,8 +15,10 @@ from django.core import serializers
 import simplejson 
 import json
 from django.template.loader import render_to_string
-
+from django.shortcuts import get_object_or_404
 from django.template import RequestContext
+
+
 
 
 # Create your views here.
@@ -26,9 +28,8 @@ def home(request):
 
 @login_required
 def load_perfil(request):
-
+  
     user = request.user
-   
     if request.POST:
         form = BodyStart(request.POST)
         if form.is_valid():
@@ -119,6 +120,18 @@ class Datos(ListView):
 
 
 
+class Hello(TemplateView):
+    def get(self,request,*args, **kwargs):
+        id = request.GET['id']
+       # url = equest.GET['url']
+        u = DatosUser.objects.filter( user_id = id )
+        #data = serializers.serialize('json',u)
+        html = render_to_string('user/ajax/misEstados.html', {'misDatos': u }, context_instance=RequestContext(request))
+        #json_data = '{"hello": "world", "foo": "bar"}' 
+        #data = json.loads(json_data)
+        #return HttpResponse(html,content_type='application/json')
+        #return render_to_response("user/ajax/misEstados.html", {"misDatos": json.dumps(data)})
+        return HttpResponse(html)
 
 
  

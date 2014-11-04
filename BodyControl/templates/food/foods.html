@@ -21,18 +21,21 @@
   
  {% block body %}
 
- 
- 
-
-
-
-
-
+  
 
   <div class="jumbotron">
 
 <div class="panel panel-primary">
   <div class="panel-heading">Mis alimentos</div>
+
+  Agregar Alimento:
+
+  <span>
+    <a style="color:gray"  href="{% url 'add_food' %} " ><img class="chica" src="{{ STATIC_URL }}images/add.png">
+    
+  </img></a> 
+     
+  </span>
   <div class="panel-body">
 
 
@@ -64,11 +67,11 @@
 
          </td>
 <td>
-   <span><a style="color:gray" href="{% url 'foods' food.id %}">(Modificar)</a></span>
+   <span><a style="color:gray" href="{% url 'edit_food' food.id %}">(Modificar)</a></span>
          </td>
        <td> 
 
-   <span><a style="color:gray" href="{% url 'foods' food.id %}">(Eliminar)</a></span>
+   <span><a style="color:gray" href="{% url 'delete_food' food.id %}">(Eliminar)</a></span>
          </td>
 
 

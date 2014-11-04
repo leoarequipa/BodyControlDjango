@@ -19,3 +19,37 @@ def load_foods(request,estado_id):
 	 
 	return render(request, "food/foods.html", {'foods':foods})
 
+@login_required()
+def add(request):
+    if request.POST:
+        form = Estado(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect(reverse("home"))
+    else:
+        form = Estado()
+    return render(request, "status/add_status.html", {'form_status':form})
+@login_required()
+def edit(request,food_id):
+    if request.POST:
+        form = Estado(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.save()
+            return redirect(reverse("home"))
+    else:
+        form = Estado()
+    return render(request, "status/add_status.html", {'form_status':form})
+    
+@login_required()
+def delete(request,food_id):
+    if request.POST:
+        form = Estado(request.POST)
+        if form.is_valid():            
+            post = form.save(commit=False)
+            post.save()
+            return redirect(reverse("home"))
+    else:
+        form = Estado()
+    return render(request, "status/add_status.html", {'form_status':form})

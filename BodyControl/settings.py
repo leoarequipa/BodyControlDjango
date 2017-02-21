@@ -6,19 +6,19 @@ https://docs.djangoproject.com/en/1.7/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
- 
+
 """
- 
- 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
 import logging
 import sys
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-     
-      
-    
+
+
+
 SECRET_KEY = 'yyl7a8d6g)04nsen-3*aih*9w0yvu2q+p$ch=gdzmgwla^3f7p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'imagekit',
     #'sorl.thumbnail',
 
-  
+
 )
 
 #TENGO QUE VERLO COMO UNA CEBOLLA, CADA CAPA ENVUELVE A LA OTRA Y SON DEPENDIENTES
@@ -61,7 +61,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 )
 
 
@@ -69,13 +69,13 @@ ROOT_URLCONF = 'BodyControl.urls'
 
 WSGI_APPLICATION = 'BodyControl.wsgi.application'
 
- 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-} 
+}
 
 LANGUAGE_CODE = 'en-us'
 
@@ -91,7 +91,7 @@ USE_TZ = True
 LOGIN_URL = "/users/login/"
 
 STATIC_URL = '/static/'
- 
+
 STATICFILES_DIRS = (
     #'/home/salchicha/Django-Proyectos/Proyecto1/BodyControl/BodyControl/static/',
     os.path.join(BASE_DIR, "BodyControl/static"),
@@ -117,7 +117,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "BodyControl.apps.main.processor.index",
     "BodyControl.apps.recommendation.processor.recomendation",
-    
+
 )
 
 MEDIA_URL = "/media/"
